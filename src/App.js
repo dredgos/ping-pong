@@ -1,4 +1,4 @@
-const App = () => (
+const App = ({ player1, player2, handleP1, handleP2, reset }) => (
   <>
       {/* header */}
       <header className="jumbotron mt-4 mb-0">
@@ -11,10 +11,10 @@ const App = () => (
               <div className="card text-center bg-dark text-white">
                   <h5 className="card-header">Player 1</h5>
                   <div className="card-body">
-                      <p className="card-text display-1">{/* player1 score */}</p>
+                      <p className="card-text display-1">{ player1 }</p>
                   </div>
                   <div className="card-footer">
-                      <button className="form-control btn btn-success">+</button>
+                      <button onClick={ handleP1 } className="form-control btn btn-success">+</button>
                   </div>
               </div>
           </div>
@@ -23,10 +23,10 @@ const App = () => (
               <div className="card text-center">
                   <h5 className="card-header">Player 2</h5>
                   <div className="card-body">
-                      <p className="card-text display-1">{/* player2 score */}</p>
+                      <p className="card-text display-1">{ player2 }</p>
                   </div>
                   <div className="card-footer">
-                      <button className="form-control btn btn-success">+</button>
+                      <button onClick={ handleP2 } className="form-control btn btn-success">+</button>
                   </div>
               </div>
           </div>
@@ -38,7 +38,7 @@ const App = () => (
       <hr />
 
       { /* reset button */}
-      <button className="btn btn-danger">Reset</button>
+      <button onClick={ reset } className="btn btn-danger">Reset</button>
   </>
 );
 

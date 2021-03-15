@@ -6,23 +6,54 @@ import reportWebVitals from './reportWebVitals';
 import { createStore } from 'redux';
 
 
-const initialState = {
+const initial = {
   player1: 0,
   player2: 0,
 };
 
-const reducer = (state, action) => {
-  
+const scoreP1 = (state) => {
+  return {...state, 
+    player1: state.player1 + 1
+  }
 }
 
-const store = createStore(reducer, initialState)
+const scoreP2 = (state) => {
+  return {...state, 
+    player2: state.player2 + 1
+  }
+}
+
+
+
+const reducer = (state, action) => {
+  switch (action.type) {
+    case "INCREMENTP1": return scoreP1(state)
+    case "INCREMENTP2": return scoreP2(state)
+    case "RESET": return initial;
+
+    default: return initial;
+  } 
+}
+
+const store = createStore(
+  reducer, 
+  initial,
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  )
 
 const render = () => {
   const state = store.getState();
 
+
   ReactDOM.render(
     <React.StrictMode>
-      <App />
+      <App 
+        player1={ state.player1 } 
+        player2={ state.player2 }
+        handleP1={ () => {store.dispatch({ type:"INCREMENTP1" })}}
+        handleP2={ () => {store.dispatch({ type:"INCREMENTP2" })}}
+        reset={ () => {store.dispatch({ type:"RESET" })}}
+      />
     </React.StrictMode>,
     document.getElementById('root')
   );
