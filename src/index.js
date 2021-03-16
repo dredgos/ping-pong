@@ -6,9 +6,6 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './data/Store'
 
-
-
-const render = () => {
   const state = store.getState();
 
 
@@ -16,9 +13,9 @@ const render = () => {
     <React.StrictMode>
       <Provider store={ store }>
         <App 
-          player1={ state.player1 } 
-          player2={ state.player2 }
-          p1Server={ state.p1Server }
+          // player1={ state.player1 } 
+          // player2={ state.player2 }
+          // p1Server={ state.p1Server }
           winner={ state.winner }
           handleP1={ () => {store.dispatch({ type:"INCREMENTP1" })}}
           handleP2={ () => {store.dispatch({ type:"INCREMENTP2" })}}
@@ -29,10 +26,7 @@ const render = () => {
     </React.StrictMode>,
     document.getElementById('root')
   );
-}
 
-store.subscribe(render);
-render();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
