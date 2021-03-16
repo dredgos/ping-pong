@@ -10,18 +10,50 @@ const initial = {
   player1: 0,
   player2: 0,
   p1Server: true,
+  winner: 0,
 };
 
+const win = 21;
+
+// const scored = (state, {player}) => {
+//   if (state[player] + 1 === win) {
+//     return {...state, 
+//       [player]: state[player] + 1,
+//       winner: 1,  
+//     } 
+//   } else {
+//     return {...state, 
+//       [player]: state[player] + 1,
+//       winner: 0, 
+//     } 
+//   }
+// }
 
 const scoreP1 = (state) => {
-  return {...state, 
-    player1: state.player1 + 1,
+  if (state.player1 + 1 === win) {
+    return {...state, 
+      player1: state.player1 + 1,
+      winner: 1,  
+    } 
+  } else {
+    return {...state, 
+      player1: state.player1 + 1,
+      winner: 0, 
+    } 
   }
 }
 
 const scoreP2 = (state) => {
-  return {...state, 
-    player2: state.player2 + 1,
+  if (state.player2 + 1 === win) {
+    return {...state, 
+      player2: state.player2 + 1,
+      winner: 2,        
+    } 
+  } else {
+    return {...state, 
+      player2: state.player2 + 1, 
+      winner: 0, 
+    } 
   }
 }
 
@@ -30,7 +62,7 @@ const setServer = (state) => {
   if (total % 5 === 0) {
     return {
       ...state,
-      p1Server: !state.p1Server
+      p1Server: !state.p1Server,
     } 
   } else {
     return state;
@@ -41,8 +73,9 @@ const setServer = (state) => {
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case "INCREMENTP1": return setServer(scoreP1(state))
-    case "INCREMENTP2": return setServer(scoreP2(state))
+    case "INCREMENTP1": return setServer(scoreP1(state));
+    case "INCREMENTP2": return setServer(scoreP2(state));
+    // case "INCREMENT" : return setServer(scored(state, action));
     case "RESET": return initial;
 
     default: return initial;
@@ -65,8 +98,10 @@ const render = () => {
         player1={ state.player1 } 
         player2={ state.player2 }
         p1Server={ state.p1Server }
+        winner={ state.winner }
         handleP1={ () => {store.dispatch({ type:"INCREMENTP1" })}}
         handleP2={ () => {store.dispatch({ type:"INCREMENTP2" })}}
+        // handleScore={ () => store.dispatch({ type:"INCREMENT", player: player1})}
         reset={ () => {store.dispatch({ type:"RESET" })}}
       />
     </React.StrictMode>,

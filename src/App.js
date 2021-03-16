@@ -1,44 +1,38 @@
-const App = ({ player1, player2, handleP1, handleP2, reset, p1Server }) => (
+import Header from './components/Header'
+import Reset from './components/Reset'
+import Winner from './components/Winner';
+import ScoreCard from "./components/ScoreCard";
+
+
+const App = ({ player1, player2, handleP1, handleP2, reset, p1Server, winner }) => (
   <>
       {/* header */}
-      <header className="jumbotron mt-4 mb-0">
-          <h1>PongPing</h1>
-      </header>
+    <Header />
 
       {/* scores */}
-      <div className="row mb-4">
-          <div className="col-md-6 mt-4">
-              <div className={`card text-center ${p1Server ? " bg-dark text-white" : ""}`}>
-                  <h5 className="card-header">Player 1</h5>
-                  <div className="card-body">
-                      <p className="card-text display-1">{ player1 }</p>
-                  </div>
-                  <div className="card-footer">
-                      <button onClick={ handleP1 } className="form-control btn btn-success">+</button>
-                  </div>
-              </div>
-          </div>
+        <div className="row mb-4">
+            <ScoreCard 
+                handleClick={ handleP1 } 
+                score={ player1 } 
+                playerName={'Player 1'}
+                p1Server={p1Server}
+            />
+            <ScoreCard 
+                handleClick={ handleP2 } 
+                score={ player2 } 
+                playerName={'Player 2'}
+                p1Server={!p1Server}
+            />
+        </div>
 
-          <div className="col-md-6 mt-4">
-              <div className={`card text-center ${!p1Server ? " bg-dark text-white" : ""}`}>
-                  <h5 className="card-header">Player 2</h5>
-                  <div className="card-body">
-                      <p className="card-text display-1">{ player2 }</p>
-                  </div>
-                  <div className="card-footer">
-                      <button onClick={ handleP2 } className="form-control btn btn-success">+</button>
-                  </div>
-              </div>
-          </div>
-      </div>
 
       { /* winner message */}
-      <h2 className="alert alert-success">Player {/* winning player here */} wins!</h2>
+        <Winner winner={winner}/>
 
       <hr />
 
       { /* reset button */}
-      <button onClick={ reset } className="btn btn-danger">Reset</button>
+      <Reset reset={reset}/>
   </>
 );
 
