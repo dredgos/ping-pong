@@ -12,16 +12,7 @@ import store from './data/Store'
   ReactDOM.render(
     <React.StrictMode>
       <Provider store={ store }>
-        <App 
-          // player1={ state.player1 } 
-          // player2={ state.player2 }
-          // p1Server={ state.p1Server }
-          // winner={ state.winner }
-          handleP1={ () => {store.dispatch({ type:"INCREMENTP1" })}}
-          handleP2={ () => {store.dispatch({ type:"INCREMENTP2" })}}
-          // handleScore={ () => store.dispatch({ type:"INCREMENT", player: player1})}
-          // reset={ () => {store.dispatch({ type:"RESET" })}}
-        />
+        <App />
       </Provider>
     </React.StrictMode>,
     document.getElementById('root')

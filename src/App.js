@@ -6,19 +6,17 @@ import Player2 from './components/ScoreCard/Player2.js';
 
 
 
-const App = ({  handleP1, handleP2, reset }) => (
+const App = () => (
   <>
       {/* header */}
     <Header />
 
       {/* scores */}
         <div className="row mb-4">
-          <Player1 
-              handleClick={ handleP1 } 
+          <Player1  
               player={1}
           />
-         <Player2 
-            handleClick={ handleP2 } 
+         <Player2  
             player={2}
           />
         </div>
