@@ -9,3 +9,9 @@ export const increment = (num) => {
         type: `INCREMENTP${num}`,
     };
 };
+
+export const gameStart = () => {
+    return {
+        type:"START"
+    }
+}

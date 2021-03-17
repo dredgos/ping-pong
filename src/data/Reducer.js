@@ -57,6 +57,13 @@ const setServer = (state) => {
     }
   
   }
+
+  const startGame = (state, action) => {
+    return {
+      ...state,
+      gameSetup: true,
+    }
+  }
   
   
 const reducer = (state, action) => {
@@ -65,6 +72,8 @@ const reducer = (state, action) => {
       case "INCREMENTP2": return setServer(scoreP2(state));
       // case "INCREMENT" : return setServer(scored(state, action));
       case "RESET": return initial;
+      case "START": return startGame(state, action);
+
   
       default: return initial;
     } 
