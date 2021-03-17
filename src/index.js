@@ -1,12 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App/';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './data/Store'
 
-  // const state = store.getState();
 
 
   ReactDOM.render(

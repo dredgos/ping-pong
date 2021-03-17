@@ -1,9 +1,9 @@
-import Header from './components/Header';
-import Reset from './components/Reset';
-import Winner from './components/Winner';
-import Player1 from './components/ScoreCard/Player1.js';
-import Player2 from './components/ScoreCard/Player2.js';
-import Setup from './components/Setup'
+import Header from '../Header';
+import Reset from '../Reset';
+import Winner from '../Winner';
+import Player1 from '../ScoreCard/Player1.js';
+import Player2 from '../ScoreCard/Player2.js';
+import Setup from '../Setup'
 
 
 
