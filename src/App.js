@@ -14,9 +14,9 @@ const App = () => (
       {/* scores */}
         <div className="row mb-4">
           <Player1  
-              player={1}
+            player={1}
           />
-         <Player2  
+          <Player2  
             player={2}
           />
         </div>

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ScoreCard from './ScoreCard';
-import { incrementP1 } from '../../data/actions'
+import { increment } from '../../data/actions'
 
 const mapStateToProps = (state) => {
     return {
@@ -9,9 +9,9 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, { player } ) => {
     return {
-        handleClick: () => dispatch( incrementP1() ),
+        handleClick: () => dispatch( increment(player) ),
     };
 };
 

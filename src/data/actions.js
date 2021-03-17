@@ -4,14 +4,8 @@ export const reset = () => {
     };
 };
 
-export const incrementP1 = () => {
+export const increment = (num) => {
     return {
-        type: "INCREMENTP1",
-    };
-};
-
-export const incrementP2 = () => {
-    return {
-        type: "INCREMENTP2",
+        type: `INCREMENTP${num}`,
     };
 };
