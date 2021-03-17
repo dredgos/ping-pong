@@ -1,12 +1,12 @@
-import Header from './components/Header'
-import Reset from './components/Reset'
+import Header from './components/Header';
+import Reset from './components/Reset/';
 import Winner from './components/Winner/';
 import Player1 from './components/ScoreCard/Player1.js';
 import Player2 from './components/ScoreCard/Player2.js';
 
 
 
-const App = ({  handleP1, handleP2, reset, winner }) => (
+const App = ({  handleP1, handleP2, reset }) => (
   <>
       {/* header */}
     <Header />
@@ -17,7 +17,7 @@ const App = ({  handleP1, handleP2, reset, winner }) => (
               handleClick={ handleP1 } 
               player={1}
           />
-        <Player2 
+         <Player2 
             handleClick={ handleP2 } 
             player={2}
           />
@@ -25,12 +25,12 @@ const App = ({  handleP1, handleP2, reset, winner }) => (
 
 
       { /* winner message */}
-        <Winner winner={winner}/>
+        <Winner />
 
       <hr />
 
       { /* reset button */}
-      <Reset reset={reset}/>
+      <Reset />
   </>
 );
 

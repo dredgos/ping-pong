@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import store from './data/Store'
 
-  const state = store.getState();
+  // const state = store.getState();
 
 
   ReactDOM.render(
@@ -16,11 +16,11 @@ import store from './data/Store'
           // player1={ state.player1 } 
           // player2={ state.player2 }
           // p1Server={ state.p1Server }
-          winner={ state.winner }
+          // winner={ state.winner }
           handleP1={ () => {store.dispatch({ type:"INCREMENTP1" })}}
           handleP2={ () => {store.dispatch({ type:"INCREMENTP2" })}}
           // handleScore={ () => store.dispatch({ type:"INCREMENT", player: player1})}
-          reset={ () => {store.dispatch({ type:"RESET" })}}
+          // reset={ () => {store.dispatch({ type:"RESET" })}}
         />
       </Provider>
     </React.StrictMode>,
