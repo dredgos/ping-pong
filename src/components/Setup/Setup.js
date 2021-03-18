@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 
-const Setup = ({ gameSetup }) => {
+const Setup = ({ gameSetup, player1Name, player2Name, winningTotal, alternateServeNum }) => {
 
     let [p1Name, setP1Name] = useState("");
     let handleChangeP1Name = (e) => setP1Name(e.currentTarget.value)
@@ -29,10 +29,11 @@ const Setup = ({ gameSetup }) => {
     }
 
     return (
+
         <form onSubmit={ handleSubmit } className="form-group">
             <label className="mt-4" htmlFor="player1">Player 1</label>
             <input 
-                value={p1Name} 
+                value={player1Name} 
                 onChange={handleChangeP1Name} 
                 className="form-control" 
                 name="player1" 
@@ -41,7 +42,7 @@ const Setup = ({ gameSetup }) => {
             />
             <label className="mt-4" htmlFor="player2">Player 2</label>
             <input 
-                value={p2Name} 
+                value={player2Name} 
                 onChange={handleChangeP2Name} 
                 className="form-control"
                 name="player2" 

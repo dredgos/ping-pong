@@ -65,6 +65,17 @@ const setServer = (state) => {
       ...payload,
     }
   }
+
+  const reset = (state) => {
+    return {
+      ...initial,
+      p1Name: state.p1Name,
+      p2Name: state.p2Name,
+      win: state.win,
+      alternateServe: state.alternateServe
+
+    }
+  }
   
   
 const reducer = (state, action) => {
@@ -72,7 +83,7 @@ const reducer = (state, action) => {
       case "INCREMENTP1": return setServer(scoreP1(state));
       case "INCREMENTP2": return setServer(scoreP2(state));
       // case "INCREMENT" : return setServer(scored(state, action));
-      case "RESET": return initial;
+      case "RESET": return reset(state);
       case "START": return startGame(state, action);
 
   
