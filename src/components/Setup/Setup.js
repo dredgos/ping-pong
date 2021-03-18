@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
 
-const Setup = ({ gameSetup, player1Name, player2Name, winningTotal, alternateServeNum }) => {
+const Setup = ({ gameSetup, player1Name, player2Name}) => {
 
-    let [p1Name, setP1Name] = useState("");
+    let [p1Name, setP1Name] = useState(player1Name);
     let handleChangeP1Name = (e) => setP1Name(e.currentTarget.value)
 
-    let [p2Name, setP2Name] = useState("");
+    let [p2Name, setP2Name] = useState(player2Name);
     let handleChangeP2Name = (e) => setP2Name(e.currentTarget.value) 
 
     let [win, setWin] = useState(21);
@@ -33,7 +33,7 @@ const Setup = ({ gameSetup, player1Name, player2Name, winningTotal, alternateSer
         <form onSubmit={ handleSubmit } className="form-group">
             <label className="mt-4" htmlFor="player1">Player 1</label>
             <input 
-                value={player1Name} 
+                value={p1Name} 
                 onChange={handleChangeP1Name} 
                 className="form-control" 
                 name="player1" 
@@ -42,7 +42,7 @@ const Setup = ({ gameSetup, player1Name, player2Name, winningTotal, alternateSer
             />
             <label className="mt-4" htmlFor="player2">Player 2</label>
             <input 
-                value={player2Name} 
+                value={p2Name} 
                 onChange={handleChangeP2Name} 
                 className="form-control"
                 name="player2" 

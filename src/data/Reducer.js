@@ -1,6 +1,7 @@
 import initial from './Initial';
 
 
+
 const win = 21;
 
 // const scored = (state, {player}) => {
@@ -59,10 +60,16 @@ const setServer = (state) => {
   }
 
   const startGame = (state, {payload}) => {
+
+    const { player_1, player_2, winning_score, change_serve } = payload
+  
     return {
       ...state,
       gameSetup: true,
-      ...payload,
+      p1Name: player_1.name,
+      p2Name: player_2.name,
+      win: winning_score,
+      alternateServe: change_serve,      
     }
   }
 
@@ -73,7 +80,6 @@ const setServer = (state) => {
       p2Name: state.p2Name,
       win: state.win,
       alternateServe: state.alternateServe
-
     }
   }
   

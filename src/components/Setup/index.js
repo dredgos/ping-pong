@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Setup from './Setup';
-import { gameStart } from '../../data/actions'
+import { postGame } from '../../data/actions/api';
 
 
 const mapStateToProps = (state) => {
@@ -8,14 +8,12 @@ const mapStateToProps = (state) => {
             gameSetup: state.gameSetup,
             player1Name: state.p1Name,
             player2Name: state.p2Name,
-            winningTotal: state.win,
-            alternateServeNum: state.alternateServe
         }
     }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        gameSetup: (data) => dispatch((gameStart(data)))
+        gameSetup: (data) => dispatch(postGame(data))
     };
 };
 
