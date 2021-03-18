@@ -10,8 +10,9 @@ export const increment = (num) => {
     };
 };
 
-export const gameStart = () => {
+export const gameStart = (data) => {
     return {
-        type:"START"
+        type:"START",
+        payload: data
     }
 }

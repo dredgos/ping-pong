@@ -58,10 +58,11 @@ const setServer = (state) => {
   
   }
 
-  const startGame = (state, action) => {
+  const startGame = (state, {payload}) => {
     return {
       ...state,
       gameSetup: true,
+      ...payload,
     }
   }
   

@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
     return {
         p1Server: state.p1Server,
         score: state.player1,
+        name: state.p1Name
     };
 };
 

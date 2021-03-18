@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        gameSetup: () => dispatch((gameStart()))
+        gameSetup: (p1Name, p2Name, win, alternateServe) => dispatch((gameStart(p1Name, p2Name, win, alternateServe)))
     };
 };
 

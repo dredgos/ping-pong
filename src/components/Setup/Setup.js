@@ -16,8 +16,16 @@ const Setup = ({ gameSetup }) => {
     let changeServe = (e) => setAlternateServe(e.currentTarget.value)
 
     let handleSubmit = (e) => {
+
+        const data = {
+            p1Name: p1Name,
+            p2Name: p2Name,
+            win: win,
+            alternateServe: alternateServe,
+        }
+
         e.preventDefault();
-        gameSetup()
+        gameSetup(data);
     }
 
     return (
